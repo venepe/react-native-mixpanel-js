@@ -1,14 +1,14 @@
 {
-  "name": "rn-redux-mixpanel",
+  "name": "react-native-mixpanel-js",
   "version": "1.1.6",
-  "description": "Configurable redux middleware that sends your actions & user profile data to Mixpanel.",
+  "description": "Send your actions & user profile data to Mixpanel.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danscan/redux-mixpanel.git"
+    "url": "git+https://github.com/venepe/react-native-mixpanel-js.git"
   },
   "keywords": [
     "react",
@@ -20,9 +20,6 @@
   ],
   "author": "Dan Scanlon",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/danscan/redux-mixpanel/issues"
-  },
   "homepage": "https://github.com/danscan/redux-mixpanel#readme",
   "dependencies": {
     "buffer": "^3.4.3",
