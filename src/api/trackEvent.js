@@ -16,7 +16,7 @@ export default trackEvent = ({ token, eventName, distinctId, eventData = {} }) =
     event: eventName,
     properties: eventProperties,
   }
-  
+
   return sendMixpanelRequest({
     endpoint: MIXPANEL_TRACK_ENDPOINT,
     data: trackRequestData,

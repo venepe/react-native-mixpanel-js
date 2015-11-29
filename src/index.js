@@ -3,22 +3,11 @@ import updateUserProfile from './api/updateUserProfile'
 
 export default mixpanel = ({
   token,
-  selectDistinctId = () => null,
-  selectUserProfileData = () => null,
-  selectEventName = (action) => action.type, 
-  selectProperties = () => null,
-  ignoreAction = (action) => false,
-}) => store => next => action => {
-  // Don't track falsy actions or actions that should be ignored
-  if (!action.type || ignoreAction(action)) {
-    return next(action)
-  }
-
-  // Get store state; select distinct id for action & state
-  const state = store.getState()
-  const distinctId = selectDistinctId(action, state)
-  const eventName = selectEventName(action, state)
-  const properties = selectProperties(action, state)
+  distinctId,
+  userProfileData,
+  eventName,
+  properties,
+}) => {
 
   // Track action event with Mixpanel
   trackEvent({
@@ -30,7 +19,6 @@ export default mixpanel = ({
 
   // Select user profile data for action; if it selects truthy data,
   // update user profile on Mixpanel
-  const userProfileData = selectUserProfileData(action, state)
   if (userProfileData) {
     updateUserProfile({
       token,
@@ -38,6 +26,4 @@ export default mixpanel = ({
       userProfileData,
     })
   }
-
-  return next(action)
 }
